@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity					// Declara que a Classe é uma Entidade do Banco de Dados
+@Data					// Disponibiliza os Métodos Getter e Setter 
+@Builder
+@NoArgsConstructor		// Cria os Construtores sem Argumentos
+@AllArgsConstructor		// Cria os Construtores com Argumentos 
 public class Books {
 	
 	@Id
