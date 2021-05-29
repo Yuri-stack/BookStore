@@ -1,5 +1,6 @@
 package com.example.bookstoreManager.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,21 @@ public class BookServices {
 			return Optional.ofNullable(repository.save(book));
 		}
 	}
+	/*
+	public Optional<List<Object>> findAllBooks(){
+		Optional<Book> booksExists = repository.findAll();
+		
+		if (!booksExists.isPresent()) {
+			return Optional.empty();
+		} else {
+			return Optional.ofNullable(booksExists);
+		}
+	}*/
 	
 	public Optional<Book> findBookById(Long id){
 		Optional<Book> bookExists = repository.findById(id);
 		
-		if (bookExists.isPresent()) {
+		if (!bookExists.isPresent()) {
 			return Optional.empty();
 		} else {
 			return Optional.ofNullable(repository.getById(id));
