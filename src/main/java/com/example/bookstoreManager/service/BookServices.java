@@ -22,4 +22,14 @@ public class BookServices {
 			return Optional.ofNullable(repository.save(book));
 		}
 	}
+	
+	public Optional<Book> findBookById(Long id){
+		Optional<Book> bookExists = repository.findById(id);
+		
+		if (bookExists.isPresent()) {
+			return Optional.empty();
+		} else {
+			return Optional.ofNullable(repository.getById(id));
+		}
+	}
 }
